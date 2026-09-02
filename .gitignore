@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.milvus.db.lock
+# Throwaway DB written by the ingest integration test.
+test_milvus.db
+*.egg-info/
+.venv/
+venv/
+build.log
+
+# Excluded from the published repository (kept locally).
+pyproject.toml
+requirements.txt
+data/
+tests/

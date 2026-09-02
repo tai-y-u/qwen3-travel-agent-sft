@@ -1,0 +1,110 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "search_travel_guide",
+            "description": "搜索旅行攻略信息，获取目的地的详细旅游信息",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "目的地城市名称，如'北京'、'上海'"
+                    },
+                    "search_mode": {
+                        "type": "string",
+                        "description": "搜索模式：vector(向量搜索)、keyword(关键词搜索)、hybrid(混合搜索)",
+                        "enum": ["vector", "keyword", "hybrid"],
+                        "default": "hybrid"
+                    }
+                },
+                "required": ["location"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_weather_info",
+            "description": "查询指定地点和时间段的天气信息",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "城市名称，如'北京'、'上海'，或城市ID如'101010100'"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "开始日期，格式YYYY-MM-DD，如'2025-09-15'"
+                    },
+                    "num_days": {
+                        "type": "integer",
+                        "description": "查询天数，默认1天。根据旅行攻略中的行程天数确定"
+                    }
+                },
+                "required": ["location", "start_date"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "query_route",
+            "description": "查询两地之间的路线，包括步行、公交、驾车路线",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "start_location": {
+                        "type": "string",
+                        "description": "起点坐标，如'116.481028,39.989643'"
+                    },
+                    "end_location": {
+                        "type": "string",
+                        "description": "终点地址，如'颐和园'"
+                    },
+                    "city_code": {
+                        "type": "string",
+                        "description": "城市代码，默认'110000'(北京)",
+                        "default": "110000"
+                    }
+                },
+                "required": ["end_location"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "recommend_hotels",
+            "description": "根据用户需求推荐酒店",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "requirements": {
+                        "type": "string",
+                        "description": "用户对酒店的需求描述，包括地点、预算、设施等"
+                    }
+                },
+                "required": ["requirements"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_hotel_reviews",
+            "description": "获取指定酒店的用户评价信息",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "hotel_name": {
+                        "type": "string",
+                        "description": "酒店名称"
+                    }
+                },
+                "required": ["hotel_name"]
+            }
+        }
+    }
+]
